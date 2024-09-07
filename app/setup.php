@@ -86,7 +86,7 @@ add_action('after_setup_theme', function (): void {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage')
+        'primary_menu' => __('Primary Navigation', 'sage')
     ]);
 
     /**

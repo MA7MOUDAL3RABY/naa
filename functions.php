@@ -65,3 +65,5 @@ collect(['setup', 'filters', 'helpers', 'medias'])
             );
         }
     });
+
+include 'framework/index.php';

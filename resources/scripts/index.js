@@ -1,6 +1,7 @@
-import Router from './utils/Router'
-import components from './components'
-import pages from './pages'
+import Router from './utils/Router';
+import components from './components';
+import './utils/bootstrap';
+import pages from './pages';
 
 const routes = new Router({
   components,

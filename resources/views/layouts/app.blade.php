@@ -11,7 +11,6 @@
     @php(wp_body_open())
 
     <div id="app">
-      @include('sections.header')
 
       <main id="main" class="main">
         @yield('content')
