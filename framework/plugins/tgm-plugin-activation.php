@@ -78,13 +78,6 @@ function my_theme_register_required_plugins() {
         'external_url' => 'https://github.com/TimPerry/acf-post-type-selector.git', // If set, overrides default API URL and points to an external URL.
     ),
     array(
-      'name' => 'Gravity Forms',
-      'slug' => 'gravityforms',
-      'source' => 'https://github.com/Abanoub-N/gravityforms/archive/main.zip', // The plugin source.
-      'required' => false,
-      'external_url' => 'https://github.com/Abanoub-N/gravityforms',
-    ),
-    array(
         'name' => 'Gravity Forms ACF Field',
         'slug' => 'Gravity-Forms-ACF-Field',
         'source' => 'https://github.com/Abanoub-N/Gravity-Forms-ACF-Field/archive/main.zip', // The plugin source.

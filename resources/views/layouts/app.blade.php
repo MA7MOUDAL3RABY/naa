@@ -1,3 +1,25 @@
+<!--
+|=============================================================================================|
+|        _        _              _        ___________         _        _______      _      _  |
+|       / \      | |            / \      |  ________ \       / \      |  ____ \    | |    | | |
+|      / ^ \     | |           / ^ \     | |        \ \     / ^ \     | |    \ \   | |    | | |
+|     / /_\ \    | |          / /_\ \    | |________/ /    / /_\ \    | |____/ /   | |____| | |
+|    / _____ \   | |         / _____ \   |  _______  /    / _____ \   |  _____  \  |______  | |
+|   / /     \ \  | |______  / /     \ \  | |       \ \   / /     \ \  | |____/  / ________| | |
+|  /_/       \_\ |_______/ /_/       \_\ |_|        \_\ /_/       \_\ |________/  \_________| |
+|                                                                                             |
+|=============================================================================================|
+|===================================== https://alaraby.dev ===================================|
+|=============================================================================================|
+  Theme Name:         theme
+  Theme URI:          https://alaraby.dev
+  Description:        WP Sage 10 with Vite Starter theme
+  Version:            1.0.0
+  Author:             Mahmoud Araby
+  Author URL:         https://alaraby.dev
+  Text Domain:        theme
+  Requires PHP:       8.2
+-->
 <!doctype html>
 <html @php(language_attributes())>
   <head>
@@ -11,6 +33,7 @@
     @php(wp_body_open())
 
     <div id="app">
+      @include('layouts.header')
 
       <main id="main" class="main">
         @yield('content')
@@ -22,7 +45,7 @@
         </aside>
       @endif
 
-      @include('sections.footer')
+      @include('layouts.footer')
     </div>
 
     @php(do_action('get_footer'))

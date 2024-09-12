@@ -1,13 +1,22 @@
 /*
-Theme Name:         OnePix Sage Vite Starter Theme
-Theme URI:          https://github.com/onepixnet/sage-vite
-Description:        Wordpress theme base on @roots sage theme
-Version:            0.1
-Author:             OnePix
-Author URI:         https://onepix.net/
-Text Domain:        sage
-License:            MIT License
-License URI:        https://opensource.org/licenses/MIT
-Requires PHP:       8.1
-Requires at least:  5.9
+|=============================================================================================|
+|        _        _              _        ___________         _        _______      _      _  |
+|       / \      | |            / \      |  ________ \       / \      |  ____ \    | |    | | |
+|      / ^ \     | |           / ^ \     | |        \ \     / ^ \     | |    \ \   | |    | | |
+|     / /_\ \    | |          / /_\ \    | |________/ /    / /_\ \    | |____/ /   | |____| | |
+|    / _____ \   | |         / _____ \   |  _______  /    / _____ \   |  _____  \  |______  | |
+|   / /     \ \  | |______  / /     \ \  | |       \ \   / /     \ \  | |____/  / ________| | |
+|  /_/       \_\ |_______/ /_/       \_\ |_|        \_\ /_/       \_\ |________/  \_________| |
+|                                                                                             |
+|=============================================================================================|
+|===================================== https://alaraby.dev ===================================|
+|=============================================================================================|
+Theme Name:         theme
+Theme URI:          https://alaraby.dev
+Description:        Sage 10 with Vite Starter theme
+Version:            1.0.0
+Author:             Mahmoud Araby
+Author URL:         https://alaraby.dev
+Text Domain:        theme
+Requires PHP:       8.2
 */
