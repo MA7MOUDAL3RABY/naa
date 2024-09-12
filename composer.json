@@ -1,19 +1,19 @@
 {
-  "name": "onepixnet/sage-vite",
+  "name": "bedrock/sage-vite-theme",
   "type": "wordpress-theme",
   "license": "MIT",
   "description": "WordPress starter theme with block editor support and Vite builder",
   "authors": [
     {
-      "name": "OnePix",
-      "email": "expert@onepix.net"
+      "name": "Araby",
+      "website": "https://alaraby.dev"
     }
   ],
   "keywords": [
     "wordpress"
   ],
   "support": {
-    "issues": "https://github.com/onepixnet/sage-vite/issues"
+    "issues": "https://wa.me/201010301346"
   },
   "scripts": {
     "phpcs": "php ./vendor/bin/phpcs ./app ./functions.php ./index.php --standard=PSR12 --cache -p -s --colors --report=summary --exclude=Generic.Files.LineLength",
