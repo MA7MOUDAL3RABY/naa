@@ -48,14 +48,14 @@ class Utilities{
       }
     }
     /**
-    * Function Name: C95 Shortcode - Utilities::c95_shortcode();
+    * Function Name: theme Shortcode - Utilities::theme_shortcode();
     * This Function can return the All of shortcodes in website
     * @param ()
     * @return (All in ShortCode array)
     */
-    static function c95_shortcode() {
+    static function theme_shortcode() {
       $shortcodes = array(
-        'C95 ShortCode' => 'c95_shortcode',
+        'theme ShortCode' => 'theme_shortcode',
       );
       foreach ($shortcodes as $key => $shortcode):
         echo '<option value="'. $shortcode .'">'. $key .'</option>' ;

@@ -39,13 +39,13 @@ function load_oembed_ajax(){
 add_action('wp_ajax_nopriv_load_oembed_ajax', 'load_oembed_ajax');
 add_action('wp_ajax_load_oembed_ajax', 'load_oembed_ajax');
 /**
-* Function Name: C95 Facebook Oembed - c95_facebook_oembed();
+* Function Name: theme Facebook Oembed - theme_facebook_oembed();
 * This Function can Add Facebook oEmbed to Oembed provider
 * @param ()
 * @return ()
 * @link https://core.trac.wordpress.org/ticket/34737
 */
-function c95_facebook_oembed() {
+function theme_facebook_oembed() {
   $endpoints = array(
     '#https?://www\.facebook\.com/video.php.*#i' => 'https://www.facebook.com/plugins/video/oembed.json/',
     '#https?://www\.facebook\.com/.*/videos/.*#i' => 'https://www.facebook.com/plugins/video/oembed.json/',
@@ -62,7 +62,7 @@ function c95_facebook_oembed() {
     wp_oembed_add_provider($pattern, $endpoint, true);
   }
 }
-add_action('init', 'c95_facebook_oembed');
+add_action('init', 'theme_facebook_oembed');
 /**
 * Function Name: filter wpseo opengraph image - filter_wpseo_opengraph_image();
 * This Function can Generates a Photon URL instead of default one

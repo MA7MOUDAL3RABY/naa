@@ -1,7 +1,7 @@
 <?php
 use Roots\Sage\Assets;
 /**
-* Function Name: C95 Custom Style - c95_custom_style();
+* Function Name: theme Custom Style - theme_custom_style();
 * This Function can Change in backend style
 * @param ()
 * @return ()
@@ -33,10 +33,10 @@ function custom_styles_admin() {
     color: #008000;
   }
 
-  .c95_admin_bar_stage{
+  .theme_admin_bar_stage{
     background: #ffa5001c !important ;
   }
-  .c95_admin_bar_stage a{
+  .theme_admin_bar_stage a{
     text-transform: capitalize !important ;
 
   }
@@ -97,7 +97,7 @@ function custom_styles_admin() {
     max-width: 50%;
   }
   /* notification style */
-  .wp-ui-notification.c95-badge {
+  .wp-ui-notification.theme-badge {
     display: inline;
     padding: 1px 4px !important;
     border-radius: 50%;
@@ -109,7 +109,7 @@ function custom_styles_admin() {
     display: flex;
     flex-wrap: wrap;
   }
-  
+
   ul.select2-results__options[id^="select2-acf-block"][id$="field_5df741b3f23fa-results"] li,
   ul.select2-results__options[id^="select2-acf-block"][id$="field_5df6960ee0d38-results"] li{
     width: 10%;

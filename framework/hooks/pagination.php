@@ -1,22 +1,22 @@
 <?php
 /**
-* Function Name: C95 Pagination - c95_pagination();
+* Function Name: theme Pagination - theme_pagination();
 * This Function can return WordPress Bootstrap Pagination
 * @param  ()
 * @return ()
 */
-function c95_pagination( $args = array() ) {
+function theme_pagination( $args = array() ) {
   $defaults = array(
     'range'           => 4,
     'custom_query'    => FALSE,
-    'previous_string' => __( 'Previous', 'C95' ),
-    'next_string'     => __( 'Next', 'C95' ),
+    'previous_string' => __( 'Previous', 'theme' ),
+    'next_string'     => __( 'Next', 'theme' ),
     'before_output'   => '<nav aria-label="Page navigation"><ul class="pagination">',
     'after_output'    => '</ul></nav>'
   );
   $args = wp_parse_args(
     $args,
-    apply_filters( 'c95_pagination_defaults', $defaults )
+    apply_filters( 'theme_pagination_defaults', $defaults )
   );
   $args['range'] = (int) $args['range'] - 1;
   if ( !$args['custom_query'] )
@@ -50,9 +50,9 @@ function c95_pagination( $args = array() ) {
 
   $firstpage = esc_attr( get_pagenum_link(1) );
   if ( $firstpage && (1 != $page) )
-  $echo .= '<li class="previous page-item"><a class="page-link" aria-label="Next" href="' . $firstpage . '">' . __( 'First', 'C95' ) . '</a></li>';
+  $echo .= '<li class="previous page-item"><a class="page-link" aria-label="Next" href="' . $firstpage . '">' . __( 'First', 'theme' ) . '</a></li>';
   if ( $previous && (1 != $page) )
-  $echo .= '<li class="page-item"><a class="page-link" aria-label="Previous" href="' . $previous . '" title="' . __( 'previous', 'C95') . '">' . $args['previous_string'] . '</a></li>';
+  $echo .= '<li class="page-item"><a class="page-link" aria-label="Previous" href="' . $previous . '" title="' . __( 'previous', 'theme') . '">' . $args['previous_string'] . '</a></li>';
 
   if ( !empty($min) && !empty($max) ) {
     for( $i = $min; $i <= $max; $i++ ) {
@@ -66,11 +66,11 @@ function c95_pagination( $args = array() ) {
   $next = intval($page) + 1;
   $next = esc_attr( get_pagenum_link($next) );
   if ($next && ($count != $page) )
-  $echo .= '<li class="page-item"><a class="page-link" href="' . $next . '" title="' . __( 'next', 'C95') . '">' . $args['next_string'] . '</a></li>';
+  $echo .= '<li class="page-item"><a class="page-link" href="' . $next . '" title="' . __( 'next', 'theme') . '">' . $args['next_string'] . '</a></li>';
 
   $lastpage = esc_attr( get_pagenum_link($count) );
   if ( $lastpage ) {
-    $echo .= '<li class="next page-item"><a class="page-link" href="' . $lastpage . '">' . __( 'Last', 'C95' ) . '</a></li>';
+    $echo .= '<li class="next page-item"><a class="page-link" href="' . $lastpage . '">' . __( 'Last', 'theme' ) . '</a></li>';
   }
   if ( isset($echo) )
   echo $args['before_output'] . $echo . $args['after_output'];

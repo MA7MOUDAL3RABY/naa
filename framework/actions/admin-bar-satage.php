@@ -1,5 +1,5 @@
 <?php
-function c95_admin_bar_stage($wp_admin_bar) {
+function theme_admin_bar_stage($wp_admin_bar) {
   $current_stage = WP_ENV;
   $color_class = '';
   if($current_stage == 'development') {
@@ -8,14 +8,14 @@ function c95_admin_bar_stage($wp_admin_bar) {
     $color_class = 'color-green';
   }
   $args = array(
-    'id' => 'c95-views',
+    'id' => 'theme-views',
     'title' => '<span class="ab-icon dashicons-admin-site ' .$color_class . '"></span>' . $current_stage . '',
     'href'   => '#',
     'meta' => array(
-      'class' => 'c95-views  c95_admin_bar_stage ' . $color_class,
+      'class' => 'theme-views  theme_admin_bar_stage ' . $color_class,
     )
   );
   $wp_admin_bar->add_node($args);
 }
 
-add_action('admin_bar_menu', 'c95_admin_bar_stage', 100);
+add_action('admin_bar_menu', 'theme_admin_bar_stage', 100);

@@ -4,10 +4,10 @@
  * Count post views function using post meta
  * @param int $postID
  */
-function c95_set_post_views($postID) {
-    $count_key = 'c95_post_views_count';
+function theme_set_post_views($postID) {
+    $count_key = 'theme_post_views_count';
     $count = get_post_meta($postID, $count_key, true);
-    $count_update = '_c95_post_views_count_time';
+    $count_update = '_theme_post_views_count_time';
     $time_to_check = 60 * 5; // 5 mins
     if (function_exists('stats_get_csv')) {
       // check if 5 minutes have elapsed since last seen
@@ -43,8 +43,8 @@ function c95_set_post_views($postID) {
 //To keep the count accurate, lets get rid of prefetching
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
-function c95_get_post_views($postID) {
-    $count_key = 'c95_post_views_count';
+function theme_get_post_views($postID) {
+    $count_key = 'theme_post_views_count';
     $count = get_post_meta($postID, $count_key, true);
     if ($count == '') {
         delete_post_meta($postID, $count_key);
@@ -70,7 +70,7 @@ function scrap_facebook_url($postID) {
     ";
 }
 
-function c95_track_post_views($post_id) {
+function theme_track_post_views($post_id) {
     if (!is_single())
         return;
     if (empty($post_id)) {
@@ -78,14 +78,14 @@ function c95_track_post_views($post_id) {
         $post_id = $post->ID;
     }
     // will duplicate count in case of active w3tc browser cache
-    echo "<!-- mfunc mysecretcode c95_set_post_views($post_id); -->";
-    c95_set_post_views(get_the_ID());
+    echo "<!-- mfunc mysecretcode theme_set_post_views($post_id); -->";
+    theme_set_post_views(get_the_ID());
     echo "<!-- /mfunc mysecretcode -->";
 }
 
-add_action('wp_head', 'c95_track_post_views');
+add_action('wp_head', 'theme_track_post_views');
 
-function c95_admin_bar_post_views($wp_admin_bar) {
+function theme_admin_bar_post_views($wp_admin_bar) {
 
     if (is_single()) {
         global $post;
@@ -93,14 +93,14 @@ function c95_admin_bar_post_views($wp_admin_bar) {
 
         $args = array(
             'id' => 'code95-views',
-            'title' => '<span class="ab-icon dashicons-visibility"></span> ' . c95_get_post_views($post_id) . ' ' . __('Views', 'C95'),
+            'title' => '<span class="ab-icon dashicons-visibility"></span> ' . theme_get_post_views($post_id) . ' ' . __('Views', 'theme'),
             'href' => get_edit_post_link($post_id),
             'meta' => array(
-                'class' => 'c95-views',
+                'class' => 'theme-views',
             )
         );
         $wp_admin_bar->add_node($args);
     }
 }
 
-add_action('admin_bar_menu', 'c95_admin_bar_post_views', 90);
+add_action('admin_bar_menu', 'theme_admin_bar_post_views', 90);

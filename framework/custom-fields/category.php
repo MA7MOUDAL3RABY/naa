@@ -7,7 +7,7 @@ acf_add_local_field_group(array (
 	'fields' => array (
 		array (
 			'layout' => 'vertical',
-			'choices' => c95_colors(),
+			'choices' => theme_colors(),
 			'default_value' => '',
 			'other_choice' => 0,
 			'save_other_choice' => 0,

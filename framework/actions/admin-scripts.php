@@ -1,6 +1,6 @@
 <?php
 function custom_scripts_admin() {
-  $category_colors = c95_colors('hexa');
+  $category_colors = theme_colors('hexa');
   ?>
   <script type="text/javascript">
   // Suffix the new post links with a random time to prevent cloudflare cache

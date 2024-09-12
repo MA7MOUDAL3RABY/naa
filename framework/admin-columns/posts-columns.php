@@ -1,6 +1,6 @@
 <?php
 // GET FEATURED IMAGE
-function C95_get_featured_image($post_ID) {
+function theme_get_featured_image($post_ID) {
   $post_thumbnail_id = get_post_thumbnail_id($post_ID);
   if ($post_thumbnail_id) {
     $post_thumbnail_img = wp_get_attachment_image_src($post_thumbnail_id, 'featured_preview');
@@ -8,47 +8,47 @@ function C95_get_featured_image($post_ID) {
   }
 }
 // ADD NEW COLUMN
-function C95_columns_head($defaults) {
+function theme_columns_head($defaults) {
   $defaults['featured_image'] = 'Featured Image';
   return $defaults;
 }
 
 // SHOW THE FEATURED IMAGE
-function C95_columns_content($column_name, $post_ID) {
+function theme_columns_content($column_name, $post_ID) {
   if ($column_name == 'featured_image') {
-    $post_featured_image = C95_get_featured_image($post_ID);
+    $post_featured_image = theme_get_featured_image($post_ID);
     if ($post_featured_image) {
       echo '<img style="width:100%;" src="' . $post_featured_image . '" />';
     }
   }
 }
-add_filter('manage_posts_columns', 'C95_columns_head');
-add_action('manage_posts_custom_column', 'C95_columns_content', 10, 2);
+add_filter('manage_posts_columns', 'theme_columns_head');
+add_action('manage_posts_custom_column', 'theme_columns_content', 10, 2);
 
 
 // ADD NEW COLUMN
-function C95_view_head($defaults) {
+function theme_view_head($defaults) {
   $defaults['view_post'] = 'Views';
   return $defaults;
 }
 
 // SHOW THE FEATURED IMAGE
-function C95_view_content($column_name, $post_ID) {
+function theme_view_content($column_name, $post_ID) {
   global $post;
   $post_id = $post->ID;
   if ($column_name == 'view_post') {
-    if(c95_get_post_views($post_id) > 100 ){
-      echo "<div class='c95-views' style='color:red;' >";
+    if(theme_get_post_views($post_id) > 100 ){
+      echo "<div class='theme-views' style='color:red;' >";
     }else{
-      echo "<div class='c95-views' style='color:green;' >";
+      echo "<div class='theme-views' style='color:green;' >";
     }
-    echo '<span class="dashicons dashicons-visibility"></span> ' . c95_get_post_views($post_id) . ' ';
+    echo '<span class="dashicons dashicons-visibility"></span> ' . theme_get_post_views($post_id) . ' ';
   }
 }
 
 
-add_filter('manage_posts_columns', 'C95_view_head');
-add_action('manage_posts_custom_column', 'C95_view_content', 10, 2);
+add_filter('manage_posts_columns', 'theme_view_head');
+add_action('manage_posts_custom_column', 'theme_view_content', 10, 2);
 
 
 

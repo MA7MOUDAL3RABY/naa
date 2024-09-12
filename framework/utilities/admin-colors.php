@@ -1,11 +1,11 @@
 <?php
 /**
-* Function Name: C95 Colors - c95_colors();
+* Function Name: theme Colors - theme_colors();
 * This Function can return Default theme colors array
 * @param ($type) Hexa | Name
 * @return ()
 */
-function c95_colors($type = '') {
+function theme_colors($type = '') {
   $fields = array(
     'midnightblue'      => array('Mid Night Blue', '#29245C'),
     'navy'              => array('Navy Blue', '#004A8F'),
@@ -50,13 +50,13 @@ function c95_colors($type = '') {
   endif;
 }
 /**
-* Function Name: C95 Convert Color Hexa - c95_convert_color_hexa();
+* Function Name: theme Convert Color Hexa - theme_convert_color_hexa();
 * This Function can Convert color for hexa to rgba
 * @param ($name)
 * @return (hexa color)
 */
-function c95_convert_color_hexa($name){
-  $hexa_colors = c95_colors('hexa');
+function theme_convert_color_hexa($name){
+  $hexa_colors = theme_colors('hexa');
   foreach ($hexa_colors as $key => $color):
     if($key == $name){
       return $color;
@@ -64,12 +64,12 @@ function c95_convert_color_hexa($name){
   endforeach;
 }
 /**
-* Function Name: C95 Colors RGBA - c95_colors_rgba();
+* Function Name: theme Colors RGBA - theme_colors_rgba();
 * This Function can return the RGBA color
 * @param ($color, $opacity)
 * @return (Rgba color)
 */
-function c95_colors_rgba($color, $opacity = false) {
+function theme_colors_rgba($color, $opacity = false) {
   $default = 'rgb(0,0,0)';
   //Return default if no color provided
   if(empty($color))
@@ -78,7 +78,7 @@ function c95_colors_rgba($color, $opacity = false) {
   if ($color[0] == '#' ) {
     $color = substr( $color, 1 );
   } else {
-    $color = c95_convert_color_hexa($color);
+    $color = theme_convert_color_hexa($color);
     $color = substr( $color, 1 );
   }
   //Check if color has 6 or 3 characters and get values
