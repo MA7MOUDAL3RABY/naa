@@ -8,14 +8,14 @@
 @if(have_rows('content'))
 <div id="theme-slider" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner py-5">
-    <div class="mx-auto mt-10 py-4">
+    <div class="mx-auto mt-10 py-5">
       @php($count = 1)
-      @while (have_rows('content') && $count == 1) @php(the_row())
+      @while (have_rows('content')) @php(the_row())
       @if(get_sub_field('main_image'))
       <div @class(['carousel-item', 'active'=> $count == 1])>
         <div class="row justify-content-between align-items-center container">
           <div class="col-12 col-md-5">
-            <h2 class="title rollable-text">{!! get_sub_field('title') !!}</h2>
+            <h2 class="title rollable-text text-lighten">{!! get_sub_field('title') !!}</h2>
             <div class="px-4 my-3">
               {!! get_sub_field('description') !!}
             </div>
@@ -40,7 +40,7 @@
             </div>
             @endif
           </div>
-          <div class="col-12 col-md-6 position-relative">
+          <div class="col-12 col-md-7 position-relative">
             @if (get_sub_field('has_buttons'))
             {{-- <transition-group name="fade" tag="div" class="flex flex-wrap justify-center"> --}}
               @php($index = 0)

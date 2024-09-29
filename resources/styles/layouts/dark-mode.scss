@@ -8,6 +8,10 @@ body {
     display: block;
   }
 
+  .text-lighten {
+    color: #000000 !important;
+  }
+
   .light-btn,
   .dark-logo {
     display: none;
@@ -16,6 +20,10 @@ body {
   &.dark-mode {
     background-color: #191919;
     color: white;
+
+    .text-lighten {
+      color: #ffffff !important;
+    }
 
     .animated-button {
       color: white !important;
