@@ -1,7 +1,43 @@
-@import "../utils/mixins";
-$font-directory: "../fonts";
+// @import "../utils/mixins";
+// $font-directory: "@fonts";
 
-@include font($font_directory, "Roboto", "Roboto-Light", 300, "normal");
-@include font($font_directory, "Roboto", "Roboto-Regular", "normal", "normal");
-@include font($font_directory, "Roboto", "Roboto-Medium", 500, "normal");
-@include font($font_directory, "Roboto", "Roboto-Bold", "bold", "normal");
+// @include font($font_directory, "arno", "arnopro_light", 300, "normal");
+// @include font($font_directory, "arno", "arnopro_legular", "normal", "normal");
+// @include font($font_directory, "arno", "arnopro_caption", 500, "normal");
+// @include font($font_directory, "arno", "arnopro_bolditalic", 500, "italic");
+// @include font($font_directory, "arno", "arnopro_bold", "bold", "normal");
+
+@font-face {
+  font-family: 'ArnoPro Bold';
+  src: url('@fonts/arno/arnopro_bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ArnoPro Bold Caption';
+  src: url('@fonts/arno/arnopro_boldcaption.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ArnoPro Bold Display';
+  src: url('@fonts/arno/arnopro_bolddisplay.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ArnoPro Bold Italic';
+  src: url('@fonts/arno/arnopro_bolditalic.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ArnoPro Caption';
+  src: url('@fonts/arno/arnopro_caption.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

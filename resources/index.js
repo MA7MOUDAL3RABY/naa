@@ -1,5 +1,5 @@
 /* Styles */
-import '@styles/main.scss'
+import '@styles/app.scss'
 
 /* Scripts */
 import '@scripts'

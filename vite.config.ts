@@ -1,4 +1,4 @@
-import { unlink } from 'fs'
+import { unlink, existsSync } from 'fs'
 import * as path from 'path'
 import copy from 'rollup-plugin-copy'
 import pluginManifest, {
@@ -43,29 +43,35 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       devSourcemap: true,
     },
     build: {
-      sourcemap: 'inline',
       manifest: true,
-      outDir: publicDir,
-      assetsDir: '',
+      outDir: `${publicDir}`,  // Ensure this is aligned with where Sage is looking
+      assetsDir: '',           // Assets will be in 'public/' directly
       rollupOptions: {
         input: {
-          main: path.resolve(__dirname, `${assets.scripts}/index.js`),
+          main: path.resolve(__dirname, `${assets.scripts}/app.js`), // main.js for Sage
           editor: path.resolve(__dirname, `${assets.scripts}/editor.js`),
+        },
+        output: {
+          entryFileNames: `assets/[name].js`,
+          chunkFileNames: `assets/[name].js`,
+          assetFileNames: `assets/[name].[ext]`,
         },
         plugins: [
           outputManifest({
-            fileName: manifestFile,
-            generate:
-              (keyValueDecorator: KeyValueDecorator, seed: object, opt: OutputManifestParam) =>
-                chunks =>
-                  chunks.reduce((manifest, { name, fileName }) => {
-                    return name
-                      ? {
-                        ...manifest,
-                        ...keyValueDecorator(formatName(name), fileName, opt),
-                      }
-                      : manifest
-                  }, seed),
+            fileName: manifestFile,  // `manifest.json` in `public/`
+            generate: (
+              keyValueDecorator: KeyValueDecorator,
+              seed: object,
+              opt: OutputManifestParam
+            ) => chunks =>
+              chunks.reduce((manifest, { name, fileName }) => {
+                return name
+                  ? {
+                      ...manifest,
+                      ...keyValueDecorator(formatName(name), fileName, opt),
+                    }
+                  : manifest
+              }, seed),
           }),
           outputManifest({
             fileName: 'entrypoints.json',
@@ -130,12 +136,15 @@ export default defineConfig(({ mode }: ConfigEnv) => {
     const protocol = 'http'
     const https = !!(devServerConfig.HMR_HTTPS_KEY && devServerConfig.HMR_HTTPS_CERT)
 
-    unlink(`${publicDir}/${manifestFile}`, error =>
-      console.log(
-        `🧹 Wipe ${manifestFile} :`,
-        error ? `No ${manifestFile} in the public directory` : '✅',
-      ),
-    )
+    // Only unlink if the file exists to avoid errors
+    if (existsSync(`${publicDir}/${manifestFile}`)) {
+      unlink(`${publicDir}/${manifestFile}`, error =>
+        console.log(
+          `🧹 Wipe ${manifestFile} :`,
+          error ? `Error deleting ${manifestFile}` : '✅',
+        ),
+      )
+    }
 
     devServerConfig.HMR_HOST && (host = devServerConfig.HMR_HOST)
     devServerConfig.HMR_PORT && (port = parseInt(devServerConfig.HMR_PORT))
@@ -147,7 +156,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       })
 
     config.server = {
-      host,
+      host: 'localhost',
       port,
       strictPort: true,
       origin: `${protocol}://${host}:${port}`,
@@ -155,18 +164,10 @@ export default defineConfig(({ mode }: ConfigEnv) => {
         strict: true,
         allow: ['node_modules', assets.base],
       },
-
-      /***
-       * For Windows user with files system watching not working
-       * https://vitejs.dev/config/server-options.html#server-watch
-       */
-
-
       watch: {
         usePolling: true,
-        interval: 1000
-      }
-
+        interval: 1000,
+      },
     }
   }
 

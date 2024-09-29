@@ -15,3 +15,18 @@
 
 /* PAGES */
 @import "pages";
+
+/* Blocks */
+@import "blocks";
+
+/* Helpers */
+@import "helpers";
+
+
+.single-3d-flip-book {
+
+  #header,
+  #footer {
+    display: none;
+  }
+}

@@ -1,0 +1,45 @@
+body {
+
+  #toggle-dark-mode {
+    cursor: pointer;
+  }
+  .light-logo,
+  .dark-btn {
+    display: block;
+  }
+
+  .light-btn,
+  .dark-logo {
+    display: none;
+  }
+
+  &.dark-mode {
+    background-color: #191919;
+    color: white;
+
+    .animated-button {
+      color: white !important;
+    }
+
+    .light-logo,
+    .dark-btn {
+      display: none;
+    }
+
+    .dark-logo,
+    .light-btn {
+      display: block;
+    }
+
+    .dark-invert {
+      filter: invert(1);
+    }
+
+    #app {
+      min-height: 100dvh;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+    }
+  }
+}

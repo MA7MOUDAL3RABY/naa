@@ -59,9 +59,9 @@ function my_theme_register_required_plugins() {
     array(
       'name' => 'Advanced Custom Fields Pro',
       'slug' => 'advanced-custom-fields-pro',
-      'source' => 'https://github.com/wp-premium/advanced-custom-fields-pro/archive/master.zip',
+      'source' => 'https://github.com/geoclaps/advanced-custom-fields-pro/archive/refs/heads/master.zip',
       'required' => true,
-      'external_url' => 'https://github.com/wp-premium/advanced-custom-fields-pro.git', // If set, overrides default API URL and points to an external URL.
+      'external_url' => 'https://github.com/geoclaps/advanced-custom-fields-pro', // If set, overrides default API URL and points to an external URL.
     ),
     array(
       'name' => 'Gravity Forms',

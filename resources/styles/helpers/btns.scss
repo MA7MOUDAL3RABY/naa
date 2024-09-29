@@ -1,0 +1,51 @@
+.animated-button,
+.btn {
+	@apply text-black shadow-lg cursor-pointer;
+
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fade-in 0.5s forwards;
+	font-size: 22px;
+	font-weight: 600;
+	padding: 10px 25px;
+	margin: 0;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+	@media screen and (max-width: 797px) {
+		padding: 0px 10px;
+		font-size: 15px;
+	}
+}
+
+@keyframes fade-in {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.btn {
+	opacity: 0;
+	font-size: 22px;
+	font-weight: 600;
+	padding: 10px 25px;
+	margin: 0;
+
+
+	@media screen and (max-width: 797px) {
+		padding: 10px 30px;
+		font-size: 20px;
+		margin: 0 auto;
+	}
+
+	&.btn-primary {
+		border-radius: 100px;
+		background: #E51724;
+		color: white;
+		text-align: center;
+	}
+}

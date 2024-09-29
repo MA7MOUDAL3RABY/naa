@@ -1,0 +1,120 @@
+#theme-slider {
+  margin-top: 8dvh;
+
+  .count {
+    font-size: 50px;
+  }
+
+  .slider-img {
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+  }
+
+  .title {
+    color: $color-main;
+    font-size: 50px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    filter: drop-shadow(5px 0 0 black)
+  }
+
+  .slider-icon-img {
+    display: block;
+    margin-bottom: -10px;
+    margin-inline-end: -20px;
+    max-width: 100px;
+  }
+
+  .slick-next,
+  .slick-prev {
+    // background-color: #484646;
+    border-radius: 50%;
+    width: max-content;
+    height: max-content;
+    z-index: 9999999999;
+
+    &::before {
+      border-radius: 50%;
+      color: white;
+      background-color: #484646;
+    }
+
+
+
+    &:focus,
+    &:hover {
+      color: #101010;
+      background-color: white;
+    }
+  }
+
+  .slick-prev {
+    left: auto;
+    right: 50%;
+
+    @media screen and (max-width: 600px) {
+      right: auto;
+      left: 0;
+    }
+  }
+
+  .animated-button,
+  .btn {
+    color: #101010;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 100px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-in 0.5s forwards;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 10px 25px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    @media screen and (max-width: 797px) {
+      padding: 0px 10px;
+      font-size: 15px;
+    }
+  }
+
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .btn {
+    opacity: 0;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 10px 25px;
+    margin: 0;
+    position: absolute;
+    border-radius: 100%;
+    box-shadow: 0 0 3px 0 black;
+
+
+    @media screen and (max-width: 797px) {
+      padding: 10px 30px;
+      font-size: 20px;
+      margin: 0 auto;
+    }
+
+    &.btn-primary {
+      border-radius: 100px;
+      background: #E51724;
+      color: white;
+      text-align: center;
+    }
+  }
+}

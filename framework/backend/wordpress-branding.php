@@ -10,7 +10,7 @@ use Roots\Sage\Assets;
 function custom_login_logo() {
   $logo = get_field('website_logo', 'option');
   if ($logo):
-    $logo = $logo["url"];
+    $logo = $logo["url"] ?? '';
   else:
     $logo = Utilities::resources_path('images/logo.png');
   endif;

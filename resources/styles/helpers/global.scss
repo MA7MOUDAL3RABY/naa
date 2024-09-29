@@ -1,0 +1,40 @@
+.line {
+	width: 100%;
+	display: inline-block;
+	background: #E51724;
+	height: 2px;
+	position: relative;
+
+
+	&::after {
+		content: ' ';
+		position: absolute;
+		// display: inline-block;
+
+		width: 10px;
+		height: 10px;
+		background: #E51724;
+		top: -4px;
+		transform: rotate(45deg);
+	}
+
+	&.point-end {
+		&::after {
+			right: 0;
+		}
+	}
+
+	&.point-start {
+		&::after {
+			left: 0;
+		}
+	}
+}
+
+.text-red {
+	color: $color-main;
+}
+
+.list-styled {
+	list-style-type: disc;
+}

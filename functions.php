@@ -56,6 +56,14 @@ bootloader()->boot();
 |
 */
 
+if (!defined('WP_DEBUG_LOG')) {
+    define('WP_DEBUG_LOG', true);
+}
+if (!defined('WP_DEBUG_DISPLAY')) {
+    define('WP_DEBUG_DISPLAY', false);
+}
+
+
 collect(['setup', 'filters', 'helpers', 'medias'])
     ->each(function ($file) {
         if (!locate_template($file = "app/{$file}.php", true, true)) {
